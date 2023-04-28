@@ -1,0 +1,23 @@
+version: '3'
+
+services:
+
+    ###> symfony/mailer ###
+    mailer:
+        image: schickling/mailcatcher
+        ports: [ "1025", "1080" ]
+    ###< symfony/mailer ###
+
+    php:
+        user: "1000:1000"
+        build:
+            args:
+                XDEBUG: "ON"
+
+    apache:
+        ports:
+            - "15200:80"
+
+    mysql:
+        ports:
+            - "15201:3306"
