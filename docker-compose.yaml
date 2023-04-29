@@ -31,22 +31,32 @@ services:
             MYSQL_DATABASE: app
         volumes:
             - mysql:/var/lib/mysql
-            - ./docker/mysql/data:/docker-entrypoint-initdb.d
+            - $PWD/docker/mysql/data:/docker-entrypoint-initdb.d
         networks:
             - backend
-    
-    phpmyadmin:
-        image: phpmyadmin/phpmyadmin
-        ports: [ 80 ]
+
+    node:
+        image: node:18-alpine
+        user: node
+        working_dir: /home/node/app
         environment:
-            PMA_HOST: "mysql"
-            PMA_PORT: "3306"
-            PMA_USER: "root"
-            PMA_PASSWORD: "root"
-        depends_on:
-            - mysql
-        networks:
-            - backend
+            - NODE_ENV=development
+        volumes:
+            - $PWD:/home/node/app
+        tty: true
+
+#    phpmyadmin:
+#        image: phpmyadmin/phpmyadmin
+#        ports: [ 80 ]
+#        environment:
+#            PMA_HOST: "mysql"
+#            PMA_PORT: "3306"
+#            PMA_USER: "root"
+#            PMA_PASSWORD: "root"
+#        depends_on:
+#            - mysql
+#        networks:
+#            - backend
 
 networks:
     backend:
