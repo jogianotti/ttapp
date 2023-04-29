@@ -17,4 +17,4 @@
 # Docker
 docker/mysql/data/*
 !docker/mysql/data/.gitignore
-
+docker-compose.override.yaml
