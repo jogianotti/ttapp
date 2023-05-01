@@ -25,8 +25,7 @@ class ApiAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return $request->isMethod('POST') && $this->getLoginUrl($request) === $request->getBaseUrl(
-            ) . $request->getPathInfo();
+        return $request->isMethod('POST');
     }
 
     public function authenticate(Request $request): Passport
@@ -61,17 +60,17 @@ class ApiAuthenticator extends AbstractAuthenticator
         return new JsonResponse(status: Response::HTTP_UNAUTHORIZED);
     }
 
-    public function start(Request $request, AuthenticationException $authException = null): Response
-    {
-        /**
-         * If you would like this class to control what happens when an anonymous user accesses a
-         * protected page (e.g. redirect to /login), uncomment this method and make this class
-         * implement Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface.
-         *
-         * For more details, see https://symfony.com/doc/current/security/experimental_authenticators.html#configuring-the-authentication-entry-point
-         */
-        return new JsonResponse(status: Response::HTTP_UNAUTHORIZED);
-    }
+    //public function start(Request $request, AuthenticationException $authException = null): Response
+    //{
+    //    /**
+    //     * If you would like this class to control what happens when an anonymous user accesses a
+    //     * protected page (e.g. redirect to /login), uncomment this method and make this class
+    //     * implement Symfony\Component\Security\Http\EntryPoint\AuthenticationEntryPointInterface.
+    //     *
+    //     * For more details, see https://symfony.com/doc/current/security/experimental_authenticators.html#configuring-the-authentication-entry-point
+    //     */
+    //    return new JsonResponse(status: Response::HTTP_UNAUTHORIZED);
+    //}
 
     protected function getLoginUrl(Request $request): string
     {
