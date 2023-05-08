@@ -1,10 +1,9 @@
-import React from "react";
+import React, {useEffect} from "react";
 import {useNavigate} from "react-router-dom";
 
 export function Logout() {
     const navigate = useNavigate();
-    const handleLogout = (e) => {
-        e.preventDefault()
+    const handleLogout = () => {
 
         fetch('/logout', {
             method: 'GET'
@@ -22,9 +21,5 @@ export function Logout() {
             });
     };
 
-    return (
-        <>
-            <button className="btn btn-primary" onClick={handleLogout}>Salir</button>
-        </>
-    )
+    useEffect(handleLogout, [])
 }

@@ -1,5 +1,6 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
+import {Button, Grid, TextField} from '@mui/material';
 
 export function Login() {
     const navigate = useNavigate();
@@ -42,30 +43,47 @@ export function Login() {
 
     return (
         <>
-            <div>
-                <form onSubmit={handleSubmit} id="form">
-                    <h1 className="h3 mb-3 font-weight-normal">Acceso a clientes</h1>
-                    <label htmlFor="inputEmail">Email</label>
-                    <input type="email"
-                           name="email"
-                           id="inputEmail"
-                           className="form-control"
-                           autoComplete="email"
-                           value={username}
-                           onChange={(e) => setUsername(e.target.value)}
-                           required autoFocus/>
-                    <label htmlFor="inputPassword">Clave</label>
-                    <input type="password"
-                           name="password"
-                           id="inputPassword"
-                           className="form-control"
-                           autoComplete="current-password"
-                           required/>
-                    <button className="btn btn-lg btn-primary" type="submit">
-                        Ingresar
-                    </button>
-                </form>
-            </div>
+            <br/>
+            <br/>
+            <form onSubmit={handleSubmit} id="form">
+                <Grid container
+                      spacing={2}
+                      direction="column"
+                      justifyContent="center"
+                      alignItems="center"
+                >
+                    <Grid item xs={6}>
+                        <h1 className="h3 mb-3 font-weight-normal">Acceso a clientes</h1>
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            variant="standard"
+                            label="Email"
+                            type="email"
+                            name="email"
+                            id="inputEmail"
+                            autoComplete="email"
+                            value={username}
+                            onChange={(e) => setUsername(e.target.value)}
+                            required autoFocus
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <TextField
+                            variant="standard"
+                            type="password"
+                            label="Clave"
+                            name="password"
+                            id="inputPassword"
+                            autoComplete="current-password"
+                            required
+                        />
+                    </Grid>
+                    <Grid item xs={6}>
+                        <Button variant="contained" type="submit">Ingresar</Button>
+                    </Grid>
+                </Grid>
+            </form>
         </>
     )
 }
