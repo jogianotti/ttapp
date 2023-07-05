@@ -9,12 +9,11 @@ import Container from '@mui/material/Container';
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import MenuItem from '@mui/material/MenuItem';
-import AdbIcon from '@mui/icons-material/Adb';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {useNavigate} from "react-router-dom";
+import Logo from "./../../logos/logos-TT-05.png";
 
-
-const pages = ['Products', 'Pricing', 'Blog'];
+const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
 export function NavBar() {
@@ -42,44 +41,10 @@ export function NavBar() {
         <AppBar position="sticky">
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
-                    <AdbIcon sx={{display: {xs: 'none', md: 'flex'}, mr: 1}}/>
-                    <Typography
-                        variant="h6"
-                        noWrap
-                        component="a"
-                        href="/"
-                        sx={{
-                            mr: 2,
-                            display: {xs: 'none', md: 'flex'},
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
+                    <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'flex'}}}>
+                        <img src={Logo} height={'35px'} alt={'Logo'}/>
+                    </Box>
 
-                    <AdbIcon sx={{display: {xs: 'flex', md: 'none'}, mr: 1}}/>
-                    <Typography
-                        variant="h5"
-                        noWrap
-                        component="a"
-                        href=""
-                        sx={{
-                            mr: 2,
-                            display: {xs: 'flex', md: 'none'},
-                            flexGrow: 1,
-                            fontFamily: 'monospace',
-                            fontWeight: 700,
-                            letterSpacing: '.3rem',
-                            color: 'inherit',
-                            textDecoration: 'none',
-                        }}
-                    >
-                        LOGO
-                    </Typography>
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>
                         {pages.map((page) => (
                             <Button
@@ -122,6 +87,12 @@ export function NavBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
+                            <MenuItem key={'settings'} onClick={() => {
+                                handleCloseUserMenu();
+                                navigate('/settings');
+                            }}>
+                                <Typography textAlign="center">{'Opciones'}</Typography>
+                            </MenuItem>
                             <MenuItem key={'logout'} onClick={() => {
                                 handleCloseUserMenu();
                                 navigate('/logout');

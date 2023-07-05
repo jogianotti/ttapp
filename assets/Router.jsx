@@ -10,6 +10,9 @@ import {Login} from "./sections/login/Login";
 import {Logout} from "./sections/login/Logout";
 import {ClientLayout} from "./sections/client/ClientLayout";
 import {ClientDashboard} from "./sections/client/ClientDashboard";
+import {NewClient} from "./sections/clients/NewClient";
+import {OneClient} from "./sections/clients/OneClient";
+
 
 const router = createHashRouter([
     {
@@ -41,6 +44,14 @@ const router = createHashRouter([
             {
                 path: "/clients",
                 element: <Clients/>,
+            },
+            {
+                path: "/clients/new",
+                element: <NewClient/>,
+            },
+            {
+                path: "/clients/:id",
+                element: <OneClient/>,
             },
             {
                 path: "/settings",

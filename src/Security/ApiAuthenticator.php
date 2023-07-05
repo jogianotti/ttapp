@@ -25,7 +25,7 @@ class ApiAuthenticator extends AbstractAuthenticator
 
     public function supports(Request $request): ?bool
     {
-        return $request->isMethod('POST');
+        return $request->isMethod('POST') && (strpos($request->getPathInfo(), 'login') > -1);
     }
 
     public function authenticate(Request $request): Passport
