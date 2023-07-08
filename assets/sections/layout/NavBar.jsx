@@ -12,6 +12,8 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {useNavigate} from "react-router-dom";
 import Logo from "./../../logos/logos-TT-05.png";
+import SettingsIcon from '@mui/icons-material/Settings';
+import LogoutIcon from '@mui/icons-material/Logout';
 
 const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
@@ -91,13 +93,15 @@ export function NavBar() {
                                 handleCloseUserMenu();
                                 navigate('/settings');
                             }}>
-                                <Typography textAlign="center">{'Opciones'}</Typography>
+                                <SettingsIcon fontSize="small"/>&nbsp;
+                                <Typography>{' Opciones'}</Typography>
                             </MenuItem>
                             <MenuItem key={'logout'} onClick={() => {
                                 handleCloseUserMenu();
                                 navigate('/logout');
                             }}>
-                                <Typography textAlign="center">{'Salir'}</Typography>
+                                <LogoutIcon fontSize="small"/>&nbsp;
+                                <Typography textAlign="center">{' Salir'}</Typography>
                             </MenuItem>
                         </Menu>
                     </Box>
