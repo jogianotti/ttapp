@@ -111,29 +111,6 @@ export function OneWork() {
 
                             </Timeline>
                         )}
-
-                        {events.length > 0 && (
-                            <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
-                                {events.map(event => (
-                                    <ListItem alignItems="flex-start" key={event.id} id={event.id}>
-                                        <ListItemText
-                                            primary={
-                                                <React.Fragment>
-                                                    <Typography
-                                                        sx={{display: 'block'}}
-                                                        component="h4"
-                                                        variant="body0"
-                                                        color="text.primary"
-                                                    >
-                                                        {event.date}
-                                                    </Typography>
-                                                </React.Fragment>
-                                            }
-                                        />
-                                    </ListItem>
-                                ))}
-                            </List>
-                        )}
                     </Grid>
                 </Grid>
                 <Grid item xs={1} md={3}></Grid>
