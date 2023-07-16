@@ -31,12 +31,16 @@
         "@emotion/styled": "^11.11.0",
         "@fontsource/roboto": "^4.5.8",
         "@mui/icons-material": "^5.11.16",
+        "@mui/lab": "^5.0.0-alpha.136",
         "@mui/material": "^5.12.3",
         "@mui/x-date-pickers": "^6.4.0",
+        "@tinymce/tinymce-react": "^4.3.0",
         "dayjs": "^1.11.7",
         "prop-types": "^15.8.1",
+        "raw-loader": "^4.0.2",
         "react": "^18.2.0",
         "react-dom": "^18.2.0",
-        "react-router-dom": "^6.11.0"
+        "react-router-dom": "^6.11.0",
+        "tinymce": "^6.5.1"
     }
 }

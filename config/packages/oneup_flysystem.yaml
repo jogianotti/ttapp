@@ -1,0 +1,10 @@
+# Read the documentation: https://github.com/1up-lab/OneupFlysystemBundle
+oneup_flysystem:
+    adapters:
+        events_images_adapter:
+            local:
+                location: '%kernel.project_dir%/public/images/events'
+    filesystems:
+        events_images:
+            adapter: events_images_adapter
+            mount: events_images

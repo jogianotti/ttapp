@@ -25,3 +25,5 @@ docker-compose.override.yaml
 npm-debug.log
 yarn-error.log
 ###< symfony/webpack-encore-bundle ###
+
+/public/images/

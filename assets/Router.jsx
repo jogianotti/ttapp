@@ -12,7 +12,8 @@ import {ClientLayout} from "./sections/client/ClientLayout";
 import {ClientDashboard} from "./sections/client/ClientDashboard";
 import {NewClient} from "./sections/clients/NewClient";
 import {OneClient} from "./sections/clients/OneClient";
-
+import {NewWork} from "./sections/works/NewWork";
+import {OneWork} from "./sections/works/OneWork";
 
 const router = createHashRouter([
     {
@@ -52,6 +53,14 @@ const router = createHashRouter([
             {
                 path: "/clients/:id",
                 element: <OneClient/>,
+            },
+            {
+                path: "/clients/:client/works/:id",
+                element: <OneWork />
+            },
+            {
+                path: "/clients/:client/works/new",
+                element: <NewWork />
             },
             {
                 path: "/settings",

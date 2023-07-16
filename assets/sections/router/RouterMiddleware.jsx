@@ -9,13 +9,13 @@ export function RouterMiddleware({children}) {
     })
         .then(async (response) => {
             if (response.status === 401) {
-                throw new Error(response.status)
+                localStorage.removeItem("authenticated");
+                localStorage.removeItem("username");
+                localStorage.removeItem("roles");
             }
         })
         .catch(error => {
-            localStorage.removeItem("authenticated");
-            localStorage.removeItem("username");
-            localStorage.removeItem("roles");
+
         });
 
     return <>{children}</>;

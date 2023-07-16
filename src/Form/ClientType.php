@@ -26,7 +26,8 @@ class ClientType extends AbstractType
                     new Unique(),
                 ],
             ])
-            ->add('startDate');
+            ->add('startDate')
+            ->add('phoneNumber');
     }
 
     public function configureOptions(OptionsResolver $resolver): void

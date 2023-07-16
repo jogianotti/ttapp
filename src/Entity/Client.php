@@ -4,8 +4,11 @@ namespace App\Entity;
 
 use App\Repository\ClientRepository;
 use DateTimeInterface;
+use Doctrine\Common\Collections\ArrayCollection;
+use Doctrine\Common\Collections\Collection;
 use Doctrine\DBAL\Types\Types;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: ClientRepository::class)]
 class Client
@@ -32,6 +35,15 @@ class Client
 
     #[ORM\Column(length: 255)]
     private ?string $phoneNumber = null;
+
+    #[Ignore]
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: Work::class)]
+    private Collection $works;
+
+    public function __construct()
+    {
+        $this->works = new ArrayCollection();
+    }
 
     public function getId(): ?int
     {
@@ -106,6 +118,36 @@ class Client
     public function setPhoneNumber(string $phoneNumber): self
     {
         $this->phoneNumber = $phoneNumber;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, Work>
+     */
+    public function getWorks(): Collection
+    {
+        return $this->works;
+    }
+
+    public function addWork(Work $work): self
+    {
+        if (!$this->works->contains($work)) {
+            $this->works->add($work);
+            $work->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWork(Work $work): self
+    {
+        if ($this->works->removeElement($work)) {
+            // set the owning side to null (unless already changed)
+            if ($work->getClient() === $this) {
+                $work->setClient(null);
+            }
+        }
 
         return $this;
     }

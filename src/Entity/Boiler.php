@@ -6,6 +6,7 @@ use App\Repository\BoilerRepository;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Serializer\Annotation\Ignore;
 
 #[ORM\Entity(repositoryClass: BoilerRepository::class)]
 class Boiler
@@ -21,6 +22,7 @@ class Boiler
     #[ORM\Column(length: 255)]
     private ?string $model = null;
 
+    #[Ignore]
     #[ORM\OneToMany(mappedBy: 'boiler', targetEntity: Work::class)]
     private Collection $works;
 
