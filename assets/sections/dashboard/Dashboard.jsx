@@ -8,7 +8,7 @@ import ConstructionIcon from '@mui/icons-material/Construction';
 export function Dashboard() {
     return (
         <>
-            <Grid container spacing={2} sx={{marginTop: '10px'}}>
+            <Grid container spacing={2} sx={{marginTop: '10px', marginBottom: '80px'}}>
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={10} md={6}>
                     <h2>Dashboard</h2>
@@ -30,7 +30,7 @@ export function Dashboard() {
                             </Grid>
                             <Grid item xs={6} sx={{textAlign: 'center', verticalAlign: 'middle'}}>
                                 {/*<Typography variant="h3" gutterBottom sx={{textAlign: 'center', verticalAlign: 'middle'}}>*/}
-                                <PersonOutlineIcon sx={{ fontSize: 100 }}/>
+                                <PersonOutlineIcon sx={{fontSize: 100}}/>
                                 {/*</Typography>*/}
                             </Grid>
                         </Grid>
@@ -45,7 +45,7 @@ export function Dashboard() {
                         <Grid container spacing={2}>
 
                             <Grid item xs={6} sx={{textAlign: 'center', verticalAlign: 'middle'}}>
-                                <ConstructionIcon sx={{ fontSize: 100 }}/>
+                                <ConstructionIcon sx={{fontSize: 100}}/>
                             </Grid>
                             <Grid item xs={6}>
                                 <Typography variant="h5" sx={{textAlign: 'center'}}>

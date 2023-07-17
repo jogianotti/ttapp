@@ -52,7 +52,7 @@ export function NewWork() {
 
     return (
         <>
-            <Grid container spacing={2}>
+            <Grid container spacing={2} sx={{marginBottom: '80px'}}>
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={10} md={6}>
                     <Typography variant="h4" gutterBottom justifyContent={"center"} sx={{marginTop: '10px'}}>
