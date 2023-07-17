@@ -3,10 +3,11 @@
     "scope": "/",
     "name": "Técnicas Térmicas",
     "display": "standalone",
-    "start_url": "/",
-    "short_name": "TT",
+    "start_url": "/index.html",
+    "short_name": "TT App",
     "theme_color": "#286daf",
     "description": "Aplicación de clientes de Técnicas Térmicas",
+    "dir": "ltr",
     "orientation": "any",
     "background_color": "#ffffff",
     "related_applications": [],
@@ -14,24 +15,25 @@
     "display_override": [
         "window-controls-overlay"
     ],
+    "handle_links": "auto",
+    "edge_side_panel": {
+        "preferred_width": 10
+    },
     "icons": [
         {
-            "src": "icons/logos-TT-07.png",
-            "sizes": "512x512",
-            "type": "image/png"
-        },
-        {
-            "src": "icons/logos-TT-07.png",
+            "src": "images/icons/logo192.png",
             "sizes": "192x192",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "any"
         },
         {
-            "src": "icons/logos-TT-07.png",
+            "src": "images/icons/logo48.png",
             "sizes": "48x48",
-            "type": "image/png"
+            "type": "image/png",
+            "purpose": "maskable"
         },
         {
-            "src": "icons/logos-TT-07.png",
+            "src": "images/icons/logo24.png",
             "sizes": "24x24",
             "type": "image/png"
         }
@@ -51,6 +53,9 @@
     "categories": [
         "social"
     ],
+    "launch_handler": {
+        "client_mode": "focus-existing"
+    },
     "shortcuts": [
         {
             "name": "Open About",
@@ -59,8 +64,30 @@
             "url": "/about",
             "icons": [
                 {
-                    "src": "icons/logos-TT-07.png",
+                    "src": "images/icons/logo192.png",
                     "sizes": "192x192"
+                }
+            ]
+        }
+    ],
+    "widgets": [
+        {
+            "name": "TT Widget",
+            "tag": "ttWidget",
+            "ms_ac_template": "widget/ac.json",
+            "data": "widget/data.json",
+            "description": "Técnicas Térmicas Widget",
+            "screenshots": [
+                {
+                    "src": "assets/screenshots/widget-screen.png",
+                    "sizes": "500x500",
+                    "label": "Widget screenshot"
+                }
+            ],
+            "icons": [
+                {
+                    "src": "images/icons/logo48.png",
+                    "sizes": "48x48"
                 }
             ]
         }

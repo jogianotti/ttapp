@@ -2,10 +2,17 @@
 <html lang="es">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, width=device-width" />
+    <meta name="viewport" content="initial-scale=1, width=device-width"/>
     <title>{% block title %}Técnicas Térmicas{% endblock %}</title>
-    <link rel="icon"
-          href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 128 128%22><text y=%221.2em%22 font-size=%2296%22>⚫️</text></svg>">
+
+    <meta name="theme-color" content="#286daf">
+
+    <!-- Imports an icon to represent the document. -->
+    <link rel="icon" href="/images/icons/logos-TT-07.png" type="image/png"/>
+
+    <!-- Imports the manifest to represent the web application. A web app must have a manifest to be a PWA. -->
+    <link rel="manifest" href="/manifest.json"/>
+
     {# Run `composer require symfony/webpack-encore-bundle` to start using Symfony UX #}
     {% block stylesheets %}
         {{ encore_entry_link_tags('index') }}
@@ -17,5 +24,12 @@
 </head>
 <body>
 <div id="root"></div>
+<script>
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register(
+            '/sw.js'
+        );
+    }
+</script>
 </body>
 </html>
