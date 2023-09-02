@@ -25,7 +25,7 @@ const router = createHashRouter([
         ),
         children: [
             {
-                path: "./",
+                path: "/client",
                 element: <ClientDashboard/>,
             },
         ],
@@ -56,11 +56,11 @@ const router = createHashRouter([
             },
             {
                 path: "/clients/:client/works/:id",
-                element: <OneWork />
+                element: <OneWork/>
             },
             {
                 path: "/clients/:client/works/new",
-                element: <NewWork />
+                element: <NewWork/>
             },
             {
                 path: "/settings",

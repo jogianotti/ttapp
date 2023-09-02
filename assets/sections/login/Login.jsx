@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 import {useNavigate} from "react-router-dom";
 import {Button, Grid, TextField} from '@mui/material';
+import {styled} from '@mui/material/styles';
+import Logo from "../../logos/logos-TT-05.png";
 
 export function Login() {
     const navigate = useNavigate();
@@ -41,9 +43,29 @@ export function Login() {
             });
     };
 
+    const RoundedTextField = styled(TextField)({
+        '& .MuiOutlinedInput-root': {
+            '& fieldset': {
+                borderRadius: '10% / 50%',
+            }
+        }
+    });
+
     return (
         <>
             <br/>
+            <Grid container
+                  spacing={2}
+                  direction="column"
+                  justifyContent="center"
+                  alignItems="center"
+            >
+                <Grid item xs={4}></Grid>
+                <Grid item xs={4}>
+                    <img src={Logo} height={'35px'} alt={'Logo'}/>
+                </Grid>
+                <Grid item xs={4}></Grid>
+            </Grid>
             <br/>
             <form onSubmit={handleSubmit} id="form">
                 <Grid container
@@ -56,9 +78,11 @@ export function Login() {
                         <h1 className="h3 mb-3 font-weight-normal">Acceso a clientes</h1>
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField
-                            variant="standard"
-                            label="Email"
+                        <RoundedTextField
+                            fullWidth
+                            size="small"
+                            variant="outlined"
+                            label="email"
                             type="email"
                             name="email"
                             id="inputEmail"
@@ -66,21 +90,29 @@ export function Login() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required autoFocus
+                            sx={{borderRadius: '50%'}}
                         />
                     </Grid>
                     <Grid item xs={6}>
-                        <TextField
-                            variant="standard"
+                        <RoundedTextField
+                            fullWidth
+                            size="small"
+                            variant="outlined"
                             type="password"
-                            label="Clave"
+                            label="clave"
                             name="password"
                             id="inputPassword"
                             autoComplete="current-password"
                             required
                         />
                     </Grid>
-                    <Grid item xs={6}>
-                        <Button variant="contained" type="submit">Ingresar</Button>
+                    <Grid item xs={12}>
+                        <Button
+                            size="small"
+                            variant="contained"
+                            type="submit"
+                            sx={{borderRadius: '20% / 50%'}}
+                        >Ingresar</Button>
                     </Grid>
                 </Grid>
             </form>

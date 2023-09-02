@@ -14,8 +14,8 @@ const root = ReactDOM.createRoot(document.getElementById('root'));
 
 root.render(
     <React.StrictMode>
-        <ScopedCssBaseline>
-            <App/>
-        </ScopedCssBaseline>
+        {/*<ScopedCssBaseline>*/}
+        <App/>
+        {/*</ScopedCssBaseline>*/}
     </React.StrictMode>
 );

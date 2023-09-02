@@ -1,7 +1,6 @@
 import React, {useEffect, useState} from "react";
 
 import {Outlet, useNavigate} from "react-router-dom";
-import {Logout} from "../login/Logout";
 
 export function ClientLayout() {
     const navigate = useNavigate();
@@ -18,7 +17,6 @@ export function ClientLayout() {
         <>
             {authenticated && <div>
                 <h1>Cliente</h1>
-                <Logout/>
                 <Outlet/>
             </div>}
         </>

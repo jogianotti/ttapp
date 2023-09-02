@@ -1,10 +1,10 @@
 import React from "react";
-import {useNavigate} from "react-router-dom";
 
 export function RouterMiddleware({children}) {
-    const navigate = useNavigate();
 
-    fetch('/admin/check', {
+    let url = (localStorage.getItem('roles').includes('ROLE_ADMIN')) ? '/admin/check' : '/client/check';
+
+    fetch(url, {
         method: 'GET'
     })
         .then(async (response) => {
