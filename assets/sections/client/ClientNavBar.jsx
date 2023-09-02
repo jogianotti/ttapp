@@ -12,13 +12,12 @@ import MenuItem from '@mui/material/MenuItem';
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 import {useNavigate} from "react-router-dom";
 import Logo from "./../../logos/logos-TT-05.png";
-import SettingsIcon from '@mui/icons-material/Settings';
 import LogoutIcon from '@mui/icons-material/Logout';
 
 const pages = [];
 const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
 
-export function NavBar() {
+export function ClientNavBar() {
     const navigate = useNavigate();
 
     const [anchorElNav, setAnchorElNav] = React.useState(null);
@@ -62,7 +61,7 @@ export function NavBar() {
                     </Box>
 
                     <Box sx={{flexGrow: 0}}>
-                        <Tooltip title="Open settings">
+                        <Tooltip title="Cuenta">
                             <IconButton
                                 size="large"
                                 aria-label="account of current user"
@@ -92,13 +91,6 @@ export function NavBar() {
                             open={Boolean(anchorElUser)}
                             onClose={handleCloseUserMenu}
                         >
-                            <MenuItem key={'settings'} onClick={() => {
-                                handleCloseUserMenu();
-                                navigate('/settings');
-                            }}>
-                                <SettingsIcon fontSize="small"/>&nbsp;
-                                <Typography>{' Opciones'}</Typography>
-                            </MenuItem>
                             <MenuItem key={'logout'} onClick={() => {
                                 handleCloseUserMenu();
                                 navigate('/logout');

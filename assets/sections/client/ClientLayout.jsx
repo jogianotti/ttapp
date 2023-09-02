@@ -1,6 +1,8 @@
 import React, {useEffect, useState} from "react";
 
 import {Outlet, useNavigate} from "react-router-dom";
+import {Grid} from "@mui/material";
+import {ClientNavBar} from "./ClientNavBar";
 
 export function ClientLayout() {
     const navigate = useNavigate();
@@ -16,8 +18,14 @@ export function ClientLayout() {
     return (
         <>
             {authenticated && <div>
-                <h1>Cliente</h1>
-                <Outlet/>
+                <Grid container
+                      direction="row"
+                      justifyContent="flex-start"
+                      alignItems="flex-start"
+                >
+                    <ClientNavBar/>
+                    <Outlet/>
+                </Grid>
             </div>}
         </>
     )
