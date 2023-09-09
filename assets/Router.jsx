@@ -14,6 +14,7 @@ import {NewClient} from "./sections/clients/NewClient";
 import {OneClient} from "./sections/clients/OneClient";
 import {NewWork} from "./sections/works/NewWork";
 import {OneWork} from "./sections/works/OneWork";
+import {ClientRequestService} from "./sections/client/ClientRequestService";
 
 const router = createHashRouter([
     {
@@ -28,6 +29,10 @@ const router = createHashRouter([
                 path: "/client",
                 element: <ClientDashboard/>,
             },
+            {
+                path: "/client/request_service",
+                element: <ClientRequestService />
+            }
         ],
     },
     {

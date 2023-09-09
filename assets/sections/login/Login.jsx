@@ -90,7 +90,7 @@ export function Login() {
                             value={username}
                             onChange={(e) => setUsername(e.target.value)}
                             required autoFocus
-                            sx={{borderRadius: '50%'}}
+                            sx={{borderRadius: '20px / 50%'}}
                         />
                     </Grid>
                     <Grid item xs={6}>
@@ -104,6 +104,7 @@ export function Login() {
                             id="inputPassword"
                             autoComplete="current-password"
                             required
+                            sx={{borderRadius: '20px / 50%'}}
                         />
                     </Grid>
                     <Grid item xs={12}>
@@ -111,7 +112,7 @@ export function Login() {
                             size="small"
                             variant="contained"
                             type="submit"
-                            sx={{borderRadius: '20% / 50%'}}
+                            sx={{borderRadius: '20px / 50%'}}
                         >Ingresar</Button>
                     </Grid>
                 </Grid>

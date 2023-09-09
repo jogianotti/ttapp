@@ -6,3 +6,7 @@ vich_uploader:
             uri_prefix: /images/events
             upload_destination: oneup_flysystem.events_images_filesystem
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        boilers_images:
+            uri_prefix: /images/boilers
+            upload_destination: oneup_flysystem.boilers_images_filesystem
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer

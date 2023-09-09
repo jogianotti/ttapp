@@ -1,14 +1,28 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import {Button, Grid} from "@mui/material";
 import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import {useNavigate} from "react-router-dom";
 
 export function ClientDashboard() {
+    const navigate = useNavigate();
+    const [authenticated, setAuthenticated] = useState(localStorage.getItem("authenticated") || false);
+    const [roles, setRoles] = useState(localStorage.getItem("roles") || []);
+
+    useEffect(() => {
+        if (!authenticated || !roles.includes('ROLE_CLIENT')) {
+            navigate("/login");
+        }
+    }, []);
+
+    const handleServiceClick = () => navigate('/client/request_service');
+
     return (
         <>
             <Grid container spacing={2} sx={{marginTop: '10px', marginBottom: '80px'}}>
                 <Grid item xs={1} md={3}></Grid>
                 <Grid item xs={10} md={6}>
                     <Button variant={'contained'} fullWidth
+                            onClick={handleServiceClick}
                             sx={{
                                 mb: 2,
                                 borderRadius: '20px / 50%',

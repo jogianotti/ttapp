@@ -1,8 +1,8 @@
 import React from "react";
 
 export function RouterMiddleware({children}) {
-
-    let url = (localStorage.getItem('roles').includes('ROLE_ADMIN')) ? '/admin/check' : '/client/check';
+    const roles = localStorage.getItem('roles') ?? [];
+    let url = (roles.includes('ROLE_ADMIN')) ? '/admin/check' : '/client/check';
 
     fetch(url, {
         method: 'GET'
