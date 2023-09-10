@@ -3,7 +3,7 @@
     "scope": "/",
     "name": "Técnicas Térmicas",
     "display": "standalone",
-    "start_url": "/index.html",
+    "start_url": "/index.php",
     "short_name": "TT App",
     "theme_color": "#286daf",
     "description": "Aplicación de clientes de Técnicas Térmicas",
@@ -40,9 +40,9 @@
     ],
     "screenshots": [
         {
-            "src": "assets/screenshots/screen.png",
-            "sizes": "1617x1012",
-            "type": "image/png"
+            "src": "images/screenshots/servicio.jpg",
+            "sizes": "479x864",
+            "type": "image/jpg"
         }
     ],
     "features": [
@@ -51,7 +51,7 @@
         "simple"
     ],
     "categories": [
-        "social"
+        "business"
     ],
     "launch_handler": {
         "client_mode": "focus-existing"
