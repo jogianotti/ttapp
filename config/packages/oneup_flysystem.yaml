@@ -7,6 +7,9 @@ oneup_flysystem:
         boilers_images_adapter:
             local:
                 location: '%kernel.project_dir%/public/images/boilers'
+        works_plans_adapter:
+            local:
+                location: '%kernel.project_dir%/public/images/plans'
     filesystems:
         events_images:
             adapter: events_images_adapter
@@ -14,3 +17,6 @@ oneup_flysystem:
         boilers_images:
             adapter: boilers_images_adapter
             mount: boilers_images
+        works_plans:
+            adapter: works_plans_adapter
+            mount: works_plans

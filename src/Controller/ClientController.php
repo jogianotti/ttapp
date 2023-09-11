@@ -3,9 +3,12 @@
 namespace App\Controller;
 
 use App\Entity\ServiceRequest;
+use App\Entity\WorkRequest;
 use App\Form\ServiceRequestType;
+use App\Form\WorkRequestType;
 use App\Repository\BoilerRepository;
 use App\Repository\ServiceRequestRepository;
+use App\Repository\WorkRequestRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -42,6 +45,27 @@ class ClientController extends AbstractController
             $serviceRequest->setImageFile($request->files->get('file'));
 
             $serviceRequestRepository->save($serviceRequest, true);
+
+            return new JsonResponse(status: Response::HTTP_CREATED);
+        }
+
+        return new JsonResponse(status: Response::HTTP_BAD_REQUEST);
+    }
+
+    #[Route('/request_work', name: 'app_client_request_work', methods: ['POST'])]
+    public function requestWork(
+        Request $request,
+        WorkRequestRepository $workRequestRepository,
+        SluggerInterface $slugger
+    ): Response {
+        $workRequest = new WorkRequest();
+        $form = $this->createForm(WorkRequestType::class, $workRequest);
+        $form->handleRequest($request);
+
+        if ($form->isSubmitted() && $form->isValid()) {
+            $workRequest->setFile($request->files->get('file'));
+
+            $workRequestRepository->save($workRequest, true);
 
             return new JsonResponse(status: Response::HTTP_CREATED);
         }

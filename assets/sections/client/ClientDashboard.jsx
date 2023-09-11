@@ -15,6 +15,7 @@ export function ClientDashboard() {
     }, []);
 
     const handleServiceClick = () => navigate('/client/request_service');
+    const handleWorkClick = () => navigate('/client/request_work');
 
     return (
         <>
@@ -34,6 +35,7 @@ export function ClientDashboard() {
                         <ArrowForwardIosIcon sx={{position: 'absolute', right: 10}}/>
                     </Button>
                     <Button variant={'contained'} fullWidth
+                            onClick={handleWorkClick}
                             sx={{
                                 mb: 2,
                                 borderRadius: '20px / 50%',

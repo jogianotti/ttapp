@@ -10,3 +10,7 @@ vich_uploader:
             uri_prefix: /images/boilers
             upload_destination: oneup_flysystem.boilers_images_filesystem
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        works_plans:
+            uri_prefix: /images/plans
+            upload_destination: oneup_flysystem.works_plans_filesystem
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
