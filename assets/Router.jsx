@@ -80,7 +80,11 @@ const router = createHashRouter([
     },
     {
         path: "/login",
-        element: <Login/>,
+        element: (
+            <RouterMiddleware>
+                <Login/>
+            </RouterMiddleware>
+        ),
     },
     {
         path: "/logout",
