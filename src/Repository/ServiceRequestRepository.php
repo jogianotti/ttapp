@@ -39,28 +39,17 @@ class ServiceRequestRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return ServiceRequest[] Returns an array of ServiceRequest objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAllWithClient()
+    {
+        $entityManager = $this->getEntityManager();
 
-//    public function findOneBySomeField($value): ?ServiceRequest
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        $query = $entityManager->createQuery(
+            'SELECT s, c
+            FROM App\Entity\ServiceRequest s
+            INNER JOIN s.client c
+            ORDER BY s.id DESC'
+        );
+
+        return $query->getResult();
+    }
 }

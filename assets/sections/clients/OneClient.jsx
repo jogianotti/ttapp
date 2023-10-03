@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {useNavigate, useParams} from "react-router-dom";
 import {Button, Grid, List, ListItem, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
+import IconButton from "@mui/material/IconButton";
 
 export function OneClient() {
     const {id} = useParams();
@@ -52,10 +54,18 @@ export function OneClient() {
                     </Typography>
                     <Grid item>
                         {works.length > 0 && (
-                            <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
+                            <List sx={{width: '100%'}}>
                                 {works.map(work => (
-                                    <ListItem alignItems="flex-start" key={work.id} id={work.id}
-                                              onClick={() => handleListItemClick(work)}>
+                                    <ListItem
+                                        alignItems="flex-start"
+                                        key={work.id} id={work.id}
+                                        onClick={() => handleListItemClick(work)}
+                                        secondaryAction={
+                                            <IconButton edge="end">
+                                                <ArrowForwardIosIcon/>
+                                            </IconButton>
+                                        }
+                                    >
                                         <ListItemText
                                             primary={
                                                 <React.Fragment>

@@ -2,6 +2,8 @@
 
 namespace App\Controller;
 
+use App\Repository\ServiceRequestRepository;
+use App\Repository\WorkRequestRepository;
 use Symfony\Bundle\FrameworkBundle\Controller\AbstractController;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Symfony\Component\HttpFoundation\Request;
@@ -16,4 +18,17 @@ class AdminController extends AbstractController
     {
         return new JsonResponse();
     }
+
+    #[Route('/service_requests', name: 'app_admin_service_requests', methods: ['GET'])]
+    public function serviceRequests(ServiceRequestRepository $serviceRequestRepository): Response
+    {
+        return $this->json($serviceRequestRepository->findAllWithClient());
+    }
+
+    #[Route('/work_requests', name: 'app_admin_work_requests', methods: ['GET'])]
+    public function workRequests(WorkRequestRepository $workRequestRepository): Response
+    {
+        return $this->json($workRequestRepository->findAllWithClient());
+    }
 }
+

@@ -59,8 +59,7 @@ services:
 #            - backend
 
 networks:
-    backend:
-        external: true
+    backend: ~
 
 volumes:
     mysql: ~

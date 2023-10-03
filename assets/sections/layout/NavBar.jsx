@@ -46,7 +46,7 @@ export function NavBar() {
             <Container maxWidth="xl">
                 <Toolbar disableGutters>
                     <Box sx={{flexGrow: 1, display: {xs: 'flex', md: 'flex'}}}>
-                        <img src={Logo} height={'35px'} alt={'Logo'}/>
+                        <img src={Logo} height={'35px'} alt={'Logo'} onClick={() => navigate('/')}/>
                     </Box>
 
                     <Box sx={{flexGrow: 1, display: {xs: 'none', md: 'flex'}}}>

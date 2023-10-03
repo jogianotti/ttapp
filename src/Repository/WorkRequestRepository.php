@@ -39,28 +39,17 @@ class WorkRequestRepository extends ServiceEntityRepository
         }
     }
 
-//    /**
-//     * @return WorkRequest[] Returns an array of WorkRequest objects
-//     */
-//    public function findByExampleField($value): array
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->orderBy('s.id', 'ASC')
-//            ->setMaxResults(10)
-//            ->getQuery()
-//            ->getResult()
-//        ;
-//    }
+    public function findAllWithClient()
+    {
+        $entityManager = $this->getEntityManager();
 
-//    public function findOneBySomeField($value): ?WorkRequest
-//    {
-//        return $this->createQueryBuilder('s')
-//            ->andWhere('s.exampleField = :val')
-//            ->setParameter('val', $value)
-//            ->getQuery()
-//            ->getOneOrNullResult()
-//        ;
-//    }
+        $query = $entityManager->createQuery(
+            'SELECT w, c
+            FROM App\Entity\WorkRequest w
+            INNER JOIN w.client c
+            ORDER BY w.id DESC'
+        );
+
+        return $query->getResult();
+    }
 }

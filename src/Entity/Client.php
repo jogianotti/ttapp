@@ -40,9 +40,23 @@ class Client
     #[ORM\OneToMany(mappedBy: 'client', targetEntity: Work::class)]
     private Collection $works;
 
+    #[Ignore]
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: ServiceRequest::class)]
+    private Collection $serviceRequests;
+
+    #[Ignore]
+    #[ORM\OneToOne(cascade: ['persist', 'remove'])]
+    private ?User $user = null;
+
+    #[Ignore]
+    #[ORM\OneToMany(mappedBy: 'client', targetEntity: WorkRequest::class)]
+    private Collection $workRequests;
+
     public function __construct()
     {
         $this->works = new ArrayCollection();
+        $this->serviceRequests = new ArrayCollection();
+        $this->workRequests = new ArrayCollection();
     }
 
     public function getId(): ?int
@@ -146,6 +160,78 @@ class Client
             // set the owning side to null (unless already changed)
             if ($work->getClient() === $this) {
                 $work->setClient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, ServiceRequest>
+     */
+    public function getServiceRequests(): Collection
+    {
+        return $this->serviceRequests;
+    }
+
+    public function addServiceRequest(ServiceRequest $serviceRequest): self
+    {
+        if (!$this->serviceRequests->contains($serviceRequest)) {
+            $this->serviceRequests->add($serviceRequest);
+            $serviceRequest->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeServiceRequest(ServiceRequest $serviceRequest): self
+    {
+        if ($this->serviceRequests->removeElement($serviceRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($serviceRequest->getClient() === $this) {
+                $serviceRequest->setClient(null);
+            }
+        }
+
+        return $this;
+    }
+
+    public function getUser(): ?User
+    {
+        return $this->user;
+    }
+
+    public function setUser(?User $user): self
+    {
+        $this->user = $user;
+
+        return $this;
+    }
+
+    /**
+     * @return Collection<int, WorkRequest>
+     */
+    public function getWorkRequests(): Collection
+    {
+        return $this->workRequests;
+    }
+
+    public function addWorkRequest(WorkRequest $workRequest): self
+    {
+        if (!$this->workRequests->contains($workRequest)) {
+            $this->workRequests->add($workRequest);
+            $workRequest->setClient($this);
+        }
+
+        return $this;
+    }
+
+    public function removeWorkRequest(WorkRequest $workRequest): self
+    {
+        if ($this->workRequests->removeElement($workRequest)) {
+            // set the owning side to null (unless already changed)
+            if ($workRequest->getClient() === $this) {
+                $workRequest->setClient(null);
             }
         }
 

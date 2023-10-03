@@ -43,6 +43,7 @@ class ClientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $serviceRequest->setImageFile($request->files->get('file'));
+            $serviceRequest->setClient($this->getUser()->getClient());
 
             $serviceRequestRepository->save($serviceRequest, true);
 
@@ -64,6 +65,7 @@ class ClientController extends AbstractController
 
         if ($form->isSubmitted() && $form->isValid()) {
             $workRequest->setFile($request->files->get('file'));
+            $workRequest->setClient($this->getUser()->getClient());
 
             $workRequestRepository->save($workRequest, true);
 

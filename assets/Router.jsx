@@ -17,6 +17,8 @@ import {OneWork} from "./sections/works/OneWork";
 import {ClientRequestService} from "./sections/client/ClientRequestService";
 import {ClientRequestWork} from "./sections/client/ClientRequestWork";
 import {WorkRequirements} from "./sections/client/WorkRequirements";
+import {WorkRequests} from "./sections/requests/WorkRequests";
+import {ServiceRequests} from "./sections/requests/ServiceRequests";
 
 const router = createHashRouter([
     {
@@ -80,6 +82,14 @@ const router = createHashRouter([
             {
                 path: "/settings",
                 element: <Settings/>,
+            },
+            {
+                path: "/service_requests",
+                element: <ServiceRequests/>,
+            },
+            {
+                path: "/work_requests",
+                element: <WorkRequests/>,
             },
         ],
     },

@@ -2,6 +2,8 @@ import React, {useEffect, useState} from 'react';
 import {Button, Grid, List, ListItem, ListItemText} from "@mui/material";
 import Typography from "@mui/material/Typography";
 import {useNavigate} from "react-router-dom";
+import IconButton from "@mui/material/IconButton";
+import ArrowForwardIosIcon from '@mui/icons-material/ArrowForwardIos';
 
 export function Clients() {
 
@@ -40,11 +42,19 @@ export function Clients() {
                     </Typography>
                     <Grid item>
                         {clients.length > 0 && (
-                            <List sx={{width: '100%', maxWidth: 360, bgcolor: 'background.paper'}}>
+                            <List sx={{width: '100%'}}>
                                 {clients.map(client => (
                                     // <>
-                                    <ListItem alignItems="flex-start" key={client.id} id={client.id}
-                                              onClick={() => handleListItemClick(client)}>
+                                    <ListItem
+                                        alignItems="flex-start"
+                                        key={client.id} id={client.id}
+                                        onClick={() => handleListItemClick(client)}
+                                        secondaryAction={
+                                            <IconButton edge="end">
+                                                <ArrowForwardIosIcon/>
+                                            </IconButton>
+                                        }
+                                    >
                                         <ListItemText
                                             primary={client.name}
                                             secondary={

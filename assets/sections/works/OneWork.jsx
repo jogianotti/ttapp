@@ -60,8 +60,7 @@ export function OneWork() {
     return (
         <>
             <Grid container spacing={2} sx={{marginTop: '10px', marginBottom: '80px'}}>
-                <Grid item xs={1} md={3}></Grid>
-                <Grid item xs={10} md={6}>
+                <Grid item xs={12} md={6}>
                     <Typography variant={'h4'}>
                         {work.title}
                     </Typography>
@@ -85,6 +84,7 @@ export function OneWork() {
                         {events.length > 0 && (
                             <Timeline
                                 sx={{
+                                    pl: 6, pr: 6,
                                     [`& .${timelineItemClasses.root}:before`]: {
                                         flex: 0,
                                         padding: 0,
@@ -92,7 +92,7 @@ export function OneWork() {
                                 }}
                             >
                                 {events.map(event => (
-                                    <>
+                                    <React.Fragment key={Math.random()}>
                                         <TimelineItem>
                                             <TimelineSeparator>
                                                 <TimelineDot/>
@@ -101,19 +101,18 @@ export function OneWork() {
                                             <TimelineContent>
                                                 <Typography variant={'p'}
                                                             color="textSecondary">{event.date}</Typography>
-                                                <Grid item xs={10} md={6} className={'event_content'}>
-                                                    <div dangerouslySetInnerHTML={{__html: event.content}}></div>
-                                                </Grid>
+                                                {/*<Grid item xs={12} md={6} className={'event_content'}>*/}
+                                                <div dangerouslySetInnerHTML={{__html: event.content}}></div>
+                                                {/*</Grid>*/}
                                             </TimelineContent>
                                         </TimelineItem>
-                                    </>
+                                    </React.Fragment>
                                 ))}
 
                             </Timeline>
                         )}
                     </Grid>
                 </Grid>
-                <Grid item xs={1} md={3}></Grid>
             </Grid>
         </>
     )
